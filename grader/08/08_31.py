@@ -15,7 +15,7 @@ def pay(pocket, amt):
         return {}
 
     p = {}
-    for (a, b) in pocket.items():
+    for (a, b) in sorted(pocket.items(), key=lambda x: x[0], reverse=True):
         while amt >= a:
             if b > 0:
                 b -= 1
@@ -26,13 +26,12 @@ def pay(pocket, amt):
                     p[a] = 1
             else:
                 break
-    for x in p.items():
+    # p.sort()
+    p = sorted(p.items(), key=lambda x: x[0], reverse=True)
+    for x in p:
         pocket[x[0]] -= x[1]
 
-    return p
+    return {x[0]: x[1] for x in p}
 
 
-# exec(input().strip())
-
-exec(
-    "def _a(p):\n print([(k,v) for k,v in sorted(p.items())])\np={100:3, 10:5, 5:10, 1:7};_a(pay(p, 52));_a(p)")
+exec(input().strip())
