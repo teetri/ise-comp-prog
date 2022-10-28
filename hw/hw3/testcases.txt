@@ -1,0 +1,6 @@
+correct:
+297 {'title': 'Pod livnem pul', 'genre': 'Drama', 'votes': 33.0, 'rating': 6.6, 'release_year': 2006, 'plot': 'Crimea Ukraine ca 1942. WWII. An elite squad of razvedchiks - army scouts - is sent deep behind German lines on a series of dangerous but vital reconnaissance missions for the Red Army.', 'poster': 'https://m.media-amazon.com/images/M/MV5BNDlkZmUwMGEtMTJmNC00ODlmLTk3NjYtMDc1MjViOWRlM2YxXkEyXkFqcGdeQXVyNjExMjE5OTM@._V1_SX300.jpg', 'ibmdb_id': 'tt0902116'}
+
+actual:
+(297, {'title': 'Pod livnem pul', 'genre': 'Drama', 'votes': 33.0, 'rating': 6.6, 'release_year': 2006, 'plot': 'Crimea Ukraine ca 1942. WWII. An elite squad of razvedchiks - army scouts - is sent deep behind German lines on a series of dangerous but vital reconnaissance missions for the Red Army.', 'poster': 'https://m.media-amazon.com/images/M/MV5BNDlkZmUwMGEtMTJmNC00ODlmLTk3NjYtMDc1MjViOWRlM2YxXkEyXkFqcGdeQXVyNjExMjE5OTM@._V1_SX300.jpg', 'ibmdb_id': 'tt0902116'})
+
