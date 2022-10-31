@@ -1,9 +1,9 @@
 import pandas as pd
 from collections import OrderedDict
-f = open('movies_full.txt', 'r')
-lines = f.readlines()
-f.close()
 
+file = open("import_movies.redis", encoding='utf8')
+lines = file.readlines()
+file.close()
 # MOVIE_DICTIONARY (*** DO NOT DELETE this line or add line before this ***)
 # Only add your code in the provided area.
 # DO NOT delete or modified the given code in main().
@@ -15,7 +15,7 @@ def load_data_to_movie_dict(lines):
 
     def replace_all(text, dic):
         for i, j in dic.items():
-            text = text.replace(i, j)
+            text = text.replace(i, j, 1)
         return text
 
     keySep = {
@@ -105,7 +105,7 @@ def load_data_to_movie_dict(lines):
 
 def summarize_movies_by_genre(movies):
     movies_by_genre = dict()
-    # Your code here
+  # Your code here
 
     genres = dict()
     for movie in movies:
@@ -114,8 +114,7 @@ def summarize_movies_by_genre(movies):
             genres[genre] = []
         genres[genre].append(movie)
 
-    movies_by_genre = genres
-
+    movies_by_genre = {k: sorted(v) for k, v in genres.items()}
     return movies_by_genre
 
 #------------------------------------------------------------#
@@ -124,7 +123,7 @@ def summarize_movies_by_genre(movies):
 def calcualte_genre_stats(movies, movies_by_genre):
     genre_stats = dict()
     # Your code here
-    #   genre_stats = dict()
+
     for genre in movies_by_genre:
         genre_stats[genre] = dict()
         count = len(movies_by_genre[genre])
@@ -173,25 +172,21 @@ movies = load_data_to_movie_dict(lines)
 movies_by_genre = summarize_movies_by_genre(movies)
 genre_stats = calcualte_genre_stats(movies, movies_by_genre)
 
+#------------------------------------------------------------#
+# *** MAIN PART ****
+movies = load_data_to_movie_dict(lines)
+movies_by_genre = summarize_movies_by_genre(movies)
+genre_stats = calcualte_genre_stats(movies, movies_by_genre)
+
 
 print(len(movies))
 # print attributes (Google Sheet1)
-# print_ordered_dict(data=movies, top=200, details=False)
+print_ordered_dict(data=movies, top='', details=False)
 # print data (Google Sheet2)
-# print_ordered_dict(data=movies, top=1141, details=True)
+print_ordered_dict(data=movies, top='', details=True)
 
 print(len(movies_by_genre))
 # print attributes (Google Sheet3)
-# print_ordered_dict(data=movies_by_genre, top=5, details=False)
-# print_ordered_dict(data=movies_by_genre, top=5)  # print data (Google Sheet4)
-# print_ordered_dict(data=genre_stats, top=5)  # print data (Google Sheet5)
-
-
-# d = {'Apple': {'Weight': 12, 'Colour': 'red'},
-#      'Banana': {'Weight': 11, 'Colour': 'yellow', 'Bunched': 1}
-#      }
-
-# convert dict to dataframe
-df = pd.DataFrame.from_dict(genre_stats, orient='index')
-
-df.to_csv('genre_stats.csv')  # write dataframe to file
+print_ordered_dict(data=movies_by_genre, top='', details=False)
+print_ordered_dict(data=movies_by_genre, top='')  # print data (Google Sheet4)
+print_ordered_dict(data=genre_stats, top='')  # print data (Google Sheet5)

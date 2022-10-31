@@ -25,7 +25,7 @@ lines = ['HSET "movie:1" title "Guardians of the Galaxy" genre "Action" votes 70
 
 f = open('movies_full.txt', 'r')
 lines = f.readlines()
-# lines = [line for line in lines if '1007' in line]
+# lines = [line for line in lines if 'Divergent' in line]
 # print(lines[1])
 # lines = [lines[1]]
 f.close()
@@ -33,7 +33,7 @@ f.close()
 
 def replace_all(text, dic):
     for i, j in dic.items():
-        text = text.replace(i, j)
+        text = text.replace(i, j, 1)
     return text
 
 
@@ -126,5 +126,5 @@ def removeMovieID(d):
 movies = {a['movie_id']: removeMovieID(a) for a in lines}
 
 # _p(movies.items())
-
-print(movies)
+if __name__ == '__main__':
+    print(movies)

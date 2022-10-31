@@ -1,6 +1,7 @@
-from hw3data_all import movies
+from hw3draft1 import movies
 
 # print(type(movies))
+print(movies[21])
 
 
 def summarize_movies_by_genre(movies):
@@ -36,4 +37,6 @@ def calcualte_genre_stats(movies, movies_by_genre):
     return genre_stats
 
 
-print(calcualte_genre_stats(movies, summarize_movies_by_genre(movies)))
+# print(calcualte_genre_stats(movies, summarize_movies_by_genre(movies)))
+
+print(summarize_movies_by_genre(movies))
